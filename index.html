@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Quiz App</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { padding: 10px 15px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+<h2>Random Quiz (5 Questions)</h2>
+<div id="quiz"></div>
+
+<button onclick="loadQuiz()">🔄 Generate New Questions</button>
+
+<script>
+const questions = [
+"Definition of Cloud",
+"Definition of Cloud Networking",
+"Definition of Cloud Security",
+"Definition of IAM",
+"Definition of Access Control",
+"Why are IAM and Access Control important?",                
+"How many types of Access Control? What are they? Example",
+"Advantages of Cloud Computing for 5 ?",
+"Disadvantages of Cloud computing for 5?",
+"Compare between Iaas, SaaS, PaaS. Explain in detail",
+"Explain Public Cloud",
+"Explain Private Cloud",
+"Explain Hybrid Cloud",     
+"Explain Community Cloud",
+"Is the cloud deployment model important? Why?",
+"What is Cloud Architecture?",
+"How many components of Cloud characteristic? What are they?",
+"What is virtualization in Cloud?",
+"Why is virtualization useful?",
+"How many types of virtualization?"
+
+];
+
+function loadQuiz() {
+  const shuffled = [...questions].sort(() => 0.5 - Math.random());
+  const selected = shuffled.slice(0, 5);
+
+  const quizDiv = document.getElementById("quiz");
+  quizDiv.innerHTML = "";
+
+  selected.forEach((q, i) => {
+    quizDiv.innerHTML += `<p>${i + 1}. ${q}</p>`;
+  });
+}
+
+// Auto-generate on page load
+loadQuiz();
+</script>
+
+</body>
+</html>
